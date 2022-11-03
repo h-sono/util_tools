@@ -1,5 +1,4 @@
 import csv
-
 import openpyxl
 import pandas as pd
 
@@ -19,9 +18,9 @@ work_book = openpyxl.load_workbook(excel_name)
 # 特定シートを指定(シートの番号をインデックス番号で指定)
 work_sheet = work_book[input_sheet_name[0]]
 
-# シートの行データを取得
+# シートの行データを取得(iter_rowsで行を読み取る)
 all_rows_list = []
-for row in work_sheet.iter_cols():
+for row in work_sheet.iter_rows():
     row_list = []
     for cell in row:
         # IntegerFieldのカラムにはエクセルファイル側で事前に数値を入れる必要あり。
@@ -34,7 +33,7 @@ for row in work_sheet.iter_cols():
     all_rows_list.append(row_list)
 
 # csvファイルへの書き込み
-with open('result.csv', 'w') as f:
+with open('convert_excel_result.csv', 'w') as f:
     writer = csv.writer(f)
     for item in all_rows_list:
         writer.writerow(item)
