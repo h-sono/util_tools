@@ -3,9 +3,9 @@ import openpyxl
 import pandas as pd
 
 # ファイル名
-file_name = 'test_file'
+file_name = "test_file"
 # 拡張子
-extention = '.xlsx'
+extention = ".xlsx"
 # ファイル名 + 拡張子
 excel_name = file_name + extention
 
@@ -26,14 +26,14 @@ for row in work_sheet.iter_rows():
         # IntegerFieldのカラムにはエクセルファイル側で事前に数値を入れる必要あり。
         # それ以外の空白セルは文字列型のカラムと判断し、Noneが来たら空文字とする。
         if cell.value is None:
-            cell.value = ''
+            cell.value = ""
             row_list.append(str(cell.value))
         else:
             row_list.append(str(cell.value))
     all_rows_list.append(row_list)
 
 # csvファイルへの書き込み
-with open('convert_excel_result.csv', 'w') as f:
+with open("convert_excel_result.csv", "w") as f:
     writer = csv.writer(f)
     for item in all_rows_list:
         writer.writerow(item)
