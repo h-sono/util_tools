@@ -33,7 +33,7 @@ for row in work_sheet.iter_rows():
     all_rows_list.append(row_list)
 
 # csvファイルへの書き込み
-with open("convert_excel_result.csv", "w") as f:
+with open("convert_excel_result.csv", "w", encoding="UTF-8") as f:
     writer = csv.writer(f)
     for item in all_rows_list:
         writer.writerow(item)
