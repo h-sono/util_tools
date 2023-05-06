@@ -1,3 +1,4 @@
+# 配布用(exeファイル)
 import tkinter
 
 # Tkinterインスタンスの生成
